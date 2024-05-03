@@ -41,6 +41,7 @@ def apply_udm2_mask(image_path, udm2_path, masked_dir):
     mask = rasterio.open(udm2_path)
     mask_data = mask.read()
 
+    # only light haze, heavy haze and cloud masks applied
     combined_mask = mask_data[3, :, :] + mask_data[4, :, :] + mask_data[5, :, :]
     # if no mask val present
     if not np.any(combined_mask != 0):
