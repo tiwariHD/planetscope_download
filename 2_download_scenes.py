@@ -51,6 +51,7 @@ class Order:
                 print('Downloading id: {} to: {}'.format(order_id, order_dir))
                 results = order_details['_links']['results']
                 for result in results:
+                    print('Running: wget -P {} --content-disposition {}'.format(order_dir, result['location']))
                     subprocess.run(["wget", "-P", order_dir, "--content-disposition", result['location']], check=True)
             else:
                 print('{}: {}'.format(order_id, order_details['last_message']))
