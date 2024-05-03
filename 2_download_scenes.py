@@ -65,7 +65,8 @@ class Order:
 
         for order_id in self.order_list:
             order_files_dir = os.path.join(self.tmp_dir, order_id, 'files')
-            print('Moving files from: {} to: {}'.format(order_files_dir, self.data_dir))
+            # in case of windows print and get the order URL and download separately
+            # print('Moving files from: {} to: {}'.format(order_files_dir, self.data_dir))
             subprocess.run([f"mv {order_files_dir}/* {self.data_dir}"], stdout=subprocess.DEVNULL, shell=True, check=True)
 
     def clear_unzipped_order_dirs(self):

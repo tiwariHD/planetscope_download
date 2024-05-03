@@ -22,7 +22,6 @@ def get_file_properties(file_path):
         'quality_category': json_data['quality_category'],
         'visible_confidence_percent': json_data.get('visible_confidence_percent', -1),
         'Fullest': 0
-
     }
 
 def save_file_properties(images_path, out_filename='images_info.xlsx', ext='harmonized_clip_reproject.tif'):
