@@ -61,6 +61,7 @@ def process_single(filename, input_dir, output_dir, masked_dir, expand_reference
     out_file_path = os.path.join(output_dir, filename)
     udm2_file_path = os.path.join(input_dir, filename.split('3B')[0] + udm2_ext)
     masked_file_path = apply_udm2_mask(in_file_path, udm2_file_path, masked_dir)
+    # expands to specified (full) extent, comment out to omit
     if is_full == 0:
         #call expand
         if masked_file_path:
@@ -145,7 +146,7 @@ if __name__ == '__main__':
             'temp_dir': 'data/tmp',
             'output_dir': 'data/masked_files',
             'excel_file': 'data/downloaded_files_info.xlsx',
-            'expand_reference_path': '' # replace with a full extent file
+            'expand_reference_path': '' # replace with a full extent .tif file
         }
     ]
     main_dir(**dir_info[0])
